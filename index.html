@@ -132,17 +132,55 @@
   .btn-solid:hover{background:#b05f6b}
   .btn-ghost{border-color:var(--sage);color:var(--sage-deep);background:transparent}
   .btn-ghost:hover{background:var(--sage-soft)}
-  .dress{background:linear-gradient(180deg,var(--ivory) 0%,var(--ivory-deep) 100%)}
-  .dress-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:880px;margin:0 auto}
-  .dress-card{background:#fff;border:1px solid rgba(157,171,142,.35);border-radius:22px;padding:36px 30px;text-align:center;box-shadow:0 14px 36px rgba(65,66,59,.06)}
-  .dress-card h3{font-size:27px;font-weight:600;margin:6px 0 8px}
-  .dress-card p{color:var(--ink-soft);font-size:18px}
-  .swatches{display:flex;justify-content:center;gap:12px;margin-top:22px}
-  .swatch{width:38px;height:38px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(65,66,59,.14),0 6px 14px rgba(65,66,59,.14);transition:transform .25s;position:relative}
-  .swatch:hover{transform:scale(1.22)}
-  .swatch::after{content:attr(data-name);position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;opacity:0;transition:opacity .25s}
+  /* ===== DRESS CODE — crystal / bling theme ===== */
+  .dress{position:relative;overflow:hidden;background:linear-gradient(180deg,#2A1018 0%,#3D1622 45%,#511C2D 100%)}
+  .dress::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background:
+      radial-gradient(2px 2px at 12% 22%,rgba(255,255,255,.9),transparent 60%),
+      radial-gradient(1.5px 1.5px at 78% 16%,rgba(255,224,235,.9),transparent 60%),
+      radial-gradient(2px 2px at 64% 70%,rgba(255,255,255,.85),transparent 60%),
+      radial-gradient(1.5px 1.5px at 28% 80%,rgba(240,200,215,.9),transparent 60%),
+      radial-gradient(1.5px 1.5px at 90% 55%,rgba(255,255,255,.8),transparent 60%),
+      radial-gradient(2px 2px at 42% 38%,rgba(255,236,180,.7),transparent 60%);
+    animation:twinkle 4s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.35}50%{opacity:.7}}
+  .dress .eyebrow{color:#E9B8C6}
+  .dress .sec-title{color:#FBEFF2}
+  .dress .sec-title em{background:linear-gradient(95deg,#E8C07A,#F6E3B0,#E8C07A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#E8C07A}
+  .dress .flourish{color:#C79CAE}
+  .dress .flourish::before,.dress .flourish::after{background:linear-gradient(90deg,transparent,#C79356)}
+  .dress .flourish::after{background:linear-gradient(90deg,#C79356,transparent)}
+  .dress-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:880px;margin:0 auto;position:relative;z-index:2}
+  .dress-card{position:relative;border-radius:22px;padding:38px 30px;text-align:center;
+    background:linear-gradient(165deg,rgba(255,255,255,.10),rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 18px 46px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.25);
+    backdrop-filter:blur(6px);overflow:hidden}
+  /* glass shimmer sweep */
+  .dress-card::after{content:"";position:absolute;top:0;left:-60%;width:50%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);
+    transform:skewX(-18deg);animation:sweep 6s ease-in-out infinite}
+  @keyframes sweep{0%{left:-60%}40%,100%{left:130%}}
+  .dress-card .eyebrow{color:#E9B8C6}
+  .dress-card h3{font-size:27px;font-weight:600;margin:6px 0 8px;color:#FBEFF2}
+  .dress-card p{color:rgba(255,255,255,.78);font-size:18px}
+  /* faceted gem swatches */
+  .swatches{display:flex;justify-content:center;gap:16px;margin-top:26px;position:relative;z-index:3}
+  .swatch{width:42px;height:42px;border-radius:50%;position:relative;cursor:pointer;
+    background:var(--c);
+    background-image:
+      linear-gradient(135deg,rgba(255,255,255,.55) 0%,transparent 38%),
+      conic-gradient(from 210deg,rgba(255,255,255,.0),rgba(255,255,255,.35),rgba(255,255,255,.0) 60%);
+    box-shadow:0 0 0 1px rgba(255,255,255,.4),0 0 14px var(--glow,rgba(255,255,255,.4)),0 8px 16px rgba(0,0,0,.35);
+    transition:transform .25s}
+  .swatch::before{content:"";position:absolute;top:18%;left:22%;width:34%;height:24%;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.95),transparent 70%);filter:blur(.5px)}
+  .swatch::after{content:attr(data-name);position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);
+    font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+    color:rgba(255,255,255,.75);white-space:nowrap;opacity:0;transition:opacity .25s}
+  .swatch:hover{transform:scale(1.25) rotate(8deg)}
   .swatch:hover::after{opacity:1}
-  .dress-note{text-align:center;margin-top:40px;font-style:italic;color:var(--ink-soft);font-size:17px}
+  .dress-note{text-align:center;margin-top:46px;font-style:italic;color:rgba(255,255,255,.72);font-size:17px;position:relative;z-index:2}
   .blessing{text-align:center}
   .blessing-quote{font-size:clamp(23px,3.4vw,30px);font-style:italic;max-width:640px;margin:0 auto 14px}
   .families{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;max-width:760px;margin:46px auto 0}
@@ -306,28 +344,28 @@
     <div class="dress-grid">
       <div class="dress-card reveal">
         <p class="eyebrow">Engagement · 19 Aug</p>
-        <h3>Smart Casual</h3>
-        <p>An easy, elegant evening — soft pastels are warmly encouraged.</p>
+        <h3>Cocktail Sparkle</h3>
+        <p>Bring a little shimmer — jewel tones, satin and a touch of crystal for the evening.</p>
         <div class="swatches">
-          <div class="swatch" style="background:#EAB8BC" data-name="Blush"></div>
-          <div class="swatch" style="background:#F3E7D3" data-name="Ivory"></div>
-          <div class="swatch" style="background:#9DAB8E" data-name="Sage"></div>
-          <div class="swatch" style="background:#D8C39A" data-name="Champagne"></div>
+          <div class="swatch" style="--c:#E7B6C4;--glow:rgba(231,182,196,.7)" data-name="Rose Quartz"></div>
+          <div class="swatch" style="--c:#C9A6D6;--glow:rgba(201,166,214,.7)" data-name="Amethyst"></div>
+          <div class="swatch" style="--c:#9FB6C9;--glow:rgba(159,182,201,.7)" data-name="Aquamarine"></div>
+          <div class="swatch" style="--c:#EBD9A3;--glow:rgba(235,217,163,.75)" data-name="Champagne"></div>
         </div>
       </div>
       <div class="dress-card reveal">
         <p class="eyebrow">Wedding &amp; Reception · 23 Aug</p>
-        <h3>Formal / Traditional</h3>
-        <p>Suits, sarees and your festive best for the church ceremony and reception.</p>
+        <h3>Burgundy &amp; Bling</h3>
+        <p>Our theme is burgundy — wear rich wine, merlot and garnet shades, dazzled with crystal and gold accents.</p>
         <div class="swatches">
-          <div class="swatch" style="background:#C4737E" data-name="Rose"></div>
-          <div class="swatch" style="background:#5F6F52" data-name="Olive"></div>
-          <div class="swatch" style="background:#C2A26B" data-name="Gold"></div>
-          <div class="swatch" style="background:#F6EFE3" data-name="Cream"></div>
+          <div class="swatch" style="--c:#5E1322;--glow:rgba(140,30,55,.85)" data-name="Burgundy"></div>
+          <div class="swatch" style="--c:#7B1E2B;--glow:rgba(150,40,60,.8)" data-name="Merlot"></div>
+          <div class="swatch" style="--c:#9E2B3A;--glow:rgba(180,55,80,.8)" data-name="Garnet"></div>
+          <div class="swatch" style="--c:#C79356;--glow:rgba(220,170,90,.85)" data-name="Gold"></div>
         </div>
       </div>
     </div>
-    <p class="dress-note reveal">Wear what makes you feel wonderful — your presence is the finest accessory.</p>
+    <p class="dress-note reveal">Dress to dazzle — wear what makes you shine, and let the crystals catch the light. ✨</p>
   </div>
 </section>
 
